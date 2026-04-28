@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* Living in Color palette — pulled from program cover */
     --c-teal:    #2EC4C9;
     --c-blue:    #5DA9E9;
     --c-lavender:#B68FD6;
@@ -20,23 +19,16 @@
     --ink:       #16121F;
     --ink-soft:  rgba(22, 18, 31, 0.72);
     --paper:     #FFFFFF;
-    --paper-soft:rgba(255, 255, 255, 0.92);
-    --border:    rgba(255, 255, 255, 0.35);
-    --border-strong: rgba(255, 255, 255, 0.6);
     --shadow:    0 18px 50px rgba(22, 18, 31, 0.18);
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-
   html, body {
     min-height: 100%;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: var(--paper);
     background: #2EC4C9;
   }
-
   body {
-    /* The Living in Color gradient — teal → blue → lavender → coral → orange → yellow */
     background:
       radial-gradient(circle at 12% 8%, rgba(255,255,255,0.18) 0, rgba(255,255,255,0) 28%),
       radial-gradient(circle at 88% 92%, rgba(255,255,255,0.12) 0, rgba(255,255,255,0) 32%),
@@ -55,8 +47,6 @@
     flex-direction: column;
     align-items: center;
   }
-
-  /* ─── Header ─────────────────────────────────── */
   .brand {
     text-align: center;
     margin-bottom: 26px;
@@ -96,8 +86,6 @@
     margin-top: 6px;
     opacity: 0.85;
   }
-
-  /* ─── Search card ────────────────────────────── */
   .card {
     width: 100%;
     max-width: 460px;
@@ -108,7 +96,6 @@
     box-shadow: var(--shadow);
     margin-bottom: 18px;
   }
-
   .tabs {
     display: flex;
     gap: 6px;
@@ -135,7 +122,6 @@
     background: var(--ink);
     color: var(--paper);
   }
-
   .field-label {
     font-family: 'Inter', sans-serif;
     font-size: 11px;
@@ -146,10 +132,7 @@
     margin-bottom: 8px;
     display: block;
   }
-
-  .search {
-    position: relative;
-  }
+  .search { position: relative; }
   .search input {
     width: 100%;
     border: 1.5px solid rgba(22, 18, 31, 0.18);
@@ -158,7 +141,7 @@
     border-radius: 14px;
     padding: 14px 44px 14px 16px;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;     /* ≥16px — avoids iOS auto-zoom */
+    font-size: 22px;
     font-weight: 500;
     line-height: 1.2;
     transition: border-color 0.18s ease, box-shadow 0.18s ease;
@@ -192,7 +175,6 @@
     justify-content: center;
   }
   .search .clear.show { display: flex; }
-
   .hint {
     font-family: 'Inter', sans-serif;
     font-size: 12px;
@@ -200,8 +182,6 @@
     margin-top: 10px;
     line-height: 1.4;
   }
-
-  /* ─── Results ────────────────────────────────── */
   .results {
     width: 100%;
     max-width: 460px;
@@ -209,7 +189,6 @@
     flex-direction: column;
     gap: 14px;
   }
-
   .result-card {
     background: var(--paper);
     color: var(--ink);
@@ -228,7 +207,6 @@
       var(--c-teal), var(--c-blue), var(--c-lavender),
       var(--c-coral), var(--c-orange), var(--c-yellow));
   }
-
   .guest-name {
     font-family: 'Gabarito', sans-serif;
     font-size: 26px;
@@ -247,7 +225,6 @@
     margin-bottom: 18px;
     line-height: 1.4;
   }
-
   .assignment {
     background: linear-gradient(135deg, var(--c-coral) 0%, var(--c-orange) 60%, var(--c-yellow) 100%);
     border-radius: 16px;
@@ -268,7 +245,7 @@
     font-family: 'Gabarito', sans-serif;
     font-weight: 700;
     line-height: 1;
-    font-size: 64px; /* auto-shrinks via JS for long values */
+    font-size: 64px;
     letter-spacing: 0.01em;
   }
   .assignment-note {
@@ -279,8 +256,6 @@
     margin-top: 10px;
     line-height: 1.4;
   }
-
-  /* ─── Empty / loading / error states ─────────── */
   .state {
     text-align: center;
     padding: 28px 16px;
@@ -304,8 +279,6 @@
     line-height: 1.5;
     color: var(--ink-soft);
   }
-
-  /* ─── Footer ─────────────────────────────────── */
   .footer {
     width: 100%;
     max-width: 460px;
@@ -318,55 +291,11 @@
     color: var(--paper);
     opacity: 0.85;
   }
-  .footer a {
-    color: var(--paper);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  }
-
-  /* ─── Org list (when searching by org) ───────── */
-  .org-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 4px;
-  }
-  .org-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 14px;
-    background: rgba(22, 18, 31, 0.04);
-    border-radius: 12px;
-    border: 1px solid rgba(22, 18, 31, 0.06);
-    cursor: pointer;
-    transition: background 0.15s ease;
-  }
-  .org-item:hover, .org-item:active {
-    background: rgba(22, 18, 31, 0.08);
-  }
-  .org-item-name {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ink);
-  }
-  .org-item-row {
-    font-family: 'Gabarito', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--c-coral);
-    letter-spacing: 0.02em;
-  }
-
-  /* ─── Animations ─────────────────────────────── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(6px); }
     to   { opacity: 1; transform: translateY(0); }
   }
   .card, .result-card { animation: fadeUp 0.25s ease both; }
-
-  /* ─── Small screens ──────────────────────────── */
   @media (max-width: 380px) {
     .brand-title { font-size: 38px; }
     .guest-name { font-size: 22px; }
@@ -384,22 +313,13 @@
 
 <section class="card" aria-label="Find your seat">
   <div class="tabs" role="tablist">
-    <button class="tab active" role="tab" data-mode="name" aria-selected="true">Find by Name</button>
-    <button class="tab" role="tab" data-mode="org" aria-selected="false">Find by Organization</button>
+    <button class="tab active" type="button" role="tab" data-mode="name" aria-selected="true">Find by Name</button>
+    <button class="tab" type="button" role="tab" data-mode="org" aria-selected="false">Find by Organization</button>
   </div>
-
   <label class="field-label" for="searchInput" id="searchLabel">Your name</label>
   <div class="search">
-    <input
-      id="searchInput"
-      type="search"
-      autocomplete="off"
-      autocorrect="off"
-      autocapitalize="words"
-      spellcheck="false"
-      placeholder="Start typing your name..."
-      aria-label="Search">
-    <button class="clear" id="clearBtn" aria-label="Clear search">×</button>
+    <input id="searchInput" type="search" autocomplete="off" autocorrect="off" autocapitalize="words" spellcheck="false" placeholder="Start typing your name..." aria-label="Search">
+    <button class="clear" type="button" id="clearBtn" aria-label="Clear search">&times;</button>
   </div>
   <div class="hint" id="hint">Type at least 2 letters to see matches.</div>
 </section>
@@ -411,75 +331,60 @@
 </footer>
 
 <script>
-  /* ───────────────────────────────────────────────
-     Configuration
-  ─────────────────────────────────────────────── */
-  const USE_GOOGLE_SHEETS = false; // ← flip to true once the Sheet is published
-  const GOOGLE_SHEET_CSV_URL = ''; // ← paste the Published-tab CSV URL here
+  var USE_GOOGLE_SHEETS = false;
+  var GOOGLE_SHEET_CSV_URL = '';
+  var REFRESH_INTERVAL_MS = 60 * 1000;
 
-  const REFRESH_INTERVAL_MS = 60 * 1000; // re-fetch CSV every 60s
-
-  // Sample data for testing — used when USE_GOOGLE_SHEETS = false
-  const SAMPLE_GUESTS = [
-    { name: 'Maggie Endres',        org: 'PCMA Foundation',                           row: 'A'   },
-    { name: 'JoAnn Bedrosian Ryan', org: 'PCMA Foundation',                           row: 'A'   },
-    { name: 'Meredith Rollins',     org: 'PCMA Foundation',                           row: 'A'   },
-    { name: 'Rebecca Blessing',     org: 'George Washington University',              row: 'B'   },
-    { name: 'Kira Elliott',         org: 'Cypress Planning Group',                    row: 'B'   },
-    { name: 'Loreal Lance',         org: 'Community Transportation Association',      row: 'C'   },
-    { name: 'Clare Mulligan',       org: 'Smithsonian',                               row: 'C'   },
-    { name: 'Tina Schneider',       org: 'NARUC',                                     row: 'D'   },
-    { name: 'Ashley Alexander',     org: 'National WIC Association',                  row: 'D'   },
-    { name: 'Jamie Simpson',        org: 'Association for Diagnostics & Lab Medicine',row: 'E'   },
-    { name: 'Sample Guest 1',       org: 'The Palm Beaches',                          row: '1-5' },
-    { name: 'Sample Guest 2',       org: 'Choose Chicago',                            row: 'Open'},
-    { name: 'Sample Guest 3',       org: 'Events DC',                                 row: '12-18'},
+  var SAMPLE_GUESTS = [
+    { name: 'Maggie Endres',        org: 'PCMA Foundation',                            row: 'A'    },
+    { name: 'JoAnn Bedrosian Ryan', org: 'PCMA Foundation',                            row: 'A'    },
+    { name: 'Meredith Rollins',     org: 'PCMA Foundation',                            row: 'A'    },
+    { name: 'Rebecca Blessing',     org: 'George Washington University',               row: 'B'    },
+    { name: 'Kira Elliott',         org: 'Cypress Planning Group',                     row: 'B'    },
+    { name: 'Loreal Lance',         org: 'Community Transportation Association',       row: 'C'    },
+    { name: 'Clare Mulligan',       org: 'Smithsonian',                                row: 'C'    },
+    { name: 'Tina Schneider',       org: 'NARUC',                                      row: 'D'    },
+    { name: 'Ashley Alexander',     org: 'National WIC Association',                   row: 'D'    },
+    { name: 'Jamie Simpson',        org: 'Association for Diagnostics & Lab Medicine', row: 'E'    },
+    { name: 'Sample Guest 1',       org: 'The Palm Beaches',                           row: '1-5'  },
+    { name: 'Sample Guest 2',       org: 'Choose Chicago',                             row: 'Open' },
+    { name: 'Sample Guest 3',       org: 'Events DC',                                  row: '12-18'}
   ];
 
-  /* ───────────────────────────────────────────────
-     State
-  ─────────────────────────────────────────────── */
-  let guests = [];
-  let mode = 'name'; // 'name' | 'org'
-  let lastFetchAt = 0;
+  var guests = [];
+  var mode = 'name';
+  var lastFetchAt = 0;
 
-  const els = {
-    input:    document.getElementById('searchInput'),
-    clear:    document.getElementById('clearBtn'),
-    label:    document.getElementById('searchLabel'),
-    hint:     document.getElementById('hint'),
-    results:  document.getElementById('results'),
-    tabs:     document.querySelectorAll('.tab'),
+  var els = {
+    input:   document.getElementById('searchInput'),
+    clear:   document.getElementById('clearBtn'),
+    label:   document.getElementById('searchLabel'),
+    hint:    document.getElementById('hint'),
+    results: document.getElementById('results'),
+    tabs:    document.querySelectorAll('.tab')
   };
 
-  /* ───────────────────────────────────────────────
-     Data loading
-  ─────────────────────────────────────────────── */
-  async function loadData() {
-    if (!USE_GOOGLE_SHEETS) {
-      guests = SAMPLE_GUESTS.slice();
-      lastFetchAt = Date.now();
-      return;
-    }
-    try {
-      const res = await fetch(GOOGLE_SHEET_CSV_URL + '&_=' + Date.now(), { cache: 'no-store' });
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      const text = await res.text();
-      guests = parseCSV(text);
-      lastFetchAt = Date.now();
-      // If user is mid-search, refresh the result view in place
-      if (els.input.value.trim().length >= 2) render();
-    } catch (e) {
-      console.error('Failed to fetch sheet:', e);
-    }
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function autoShrink(el) {
+    var len = (el.textContent || '').length;
+    var size = 64;
+    if (len > 3)  size = 52;
+    if (len > 5)  size = 40;
+    if (len > 8)  size = 30;
+    if (len > 12) size = 22;
+    el.style.fontSize = size + 'px';
   }
 
   function parseCSV(text) {
-    // Lightweight CSV parser — handles quoted fields and embedded commas
-    const rows = [];
-    let row = [], field = '', inQuotes = false;
-    for (let i = 0; i < text.length; i++) {
-      const c = text[i];
+    var rows = [];
+    var row = [], field = '', inQuotes = false;
+    for (var i = 0; i < text.length; i++) {
+      var c = text[i];
       if (inQuotes) {
         if (c === '"' && text[i+1] === '"') { field += '"'; i++; }
         else if (c === '"') { inQuotes = false; }
@@ -496,181 +401,147 @@
     }
     if (field !== '' || row.length) { row.push(field); rows.push(row); }
     if (!rows.length) return [];
-    const headers = rows.shift().map(h => h.trim().toLowerCase());
-    const idx = {
-      name: headers.indexOf('name'),
-      row:  headers.indexOf('row'),
-      org:  headers.indexOf('org'),
-    };
-    return rows
-      .filter(r => r.some(v => (v || '').trim() !== ''))
-      .map(r => ({
-        name: (r[idx.name] || '').trim(),
-        row:  (r[idx.row]  || '').trim(),
-        org:  (r[idx.org]  || '').trim(),
-      }))
-      .filter(g => g.name);
+    var headers = rows.shift().map(function(h){ return h.trim().toLowerCase(); });
+    var idx = { name: headers.indexOf('name'), row: headers.indexOf('row'), org: headers.indexOf('org') };
+    return rows.filter(function(r){ return r.some(function(v){ return (v || '').trim() !== ''; }); })
+      .map(function(r){
+        return {
+          name: (r[idx.name] || '').trim(),
+          row:  (r[idx.row]  || '').trim(),
+          org:  (r[idx.org]  || '').trim()
+        };
+      })
+      .filter(function(g){ return g.name; });
   }
 
-  /* ───────────────────────────────────────────────
-     Render
-  ─────────────────────────────────────────────── */
-  function render() {
-    const q = els.input.value.trim().toLowerCase();
-    els.clear.classList.toggle('show', q.length > 0);
-
-    if (q.length < 2) {
-      els.results.innerHTML = '';
-      return;
+  function loadData() {
+    if (!USE_GOOGLE_SHEETS) {
+      guests = SAMPLE_GUESTS.slice();
+      lastFetchAt = Date.now();
+      return Promise.resolve();
     }
-
-    if (mode === 'name') {
-      const matches = guests
-        .filter(g => g.name.toLowerCase().includes(q))
-        .sort((a, b) => a.name.localeCompare(b.name))
-        .slice(0, 8);
-
-      if (!matches.length) {
-        els.results.innerHTML = noMatchCard(q);
-        return;
-      }
-      els.results.innerHTML = matches.map(guestCard).join('');
-    } else {
-      // Org mode: group results
-      const matchingOrgs = [...new Set(
-        guests
-          .filter(g => g.org.toLowerCase().includes(q))
-          .map(g => g.org)
-      )].sort();
-
-      if (!matchingOrgs.length) {
-        els.results.innerHTML = noMatchCard(q);
-        return;
-      }
-
-      // For each org, show the row(s) — if multiple rows, show them all
-      els.results.innerHTML = matchingOrgs.slice(0, 8).map(org => {
-        const orgGuests = guests.filter(g => g.org === org);
-        const rows = [...new Set(orgGuests.map(g => g.row).filter(Boolean))];
-        const guestCount = orgGuests.length;
-        return orgSummaryCard(org, rows, guestCount);
-      }).join('');
-    }
-
-    // Auto-shrink any long row values
-    document.querySelectorAll('.assignment-value').forEach(autoShrink);
+    return fetch(GOOGLE_SHEET_CSV_URL + '&_=' + Date.now(), { cache: 'no-store' })
+      .then(function(res){ if (!res.ok) throw new Error('HTTP ' + res.status); return res.text(); })
+      .then(function(text){
+        guests = parseCSV(text);
+        lastFetchAt = Date.now();
+        if (els.input.value.trim().length >= 2) render();
+      })
+      .catch(function(e){ console.error('Fetch failed:', e); });
   }
 
   function guestCard(g) {
-    const rowDisplay = g.row ? escapeHtml(g.row) : '—';
-    const note = g.row
+    var rowDisplay = g.row ? escapeHtml(g.row) : '&mdash;';
+    var note = g.row
       ? 'Find your row at the runway showroom.'
-      : 'Row assignment pending — please check at registration.';
-    return `
-      <article class="result-card">
-        <div class="guest-name">${escapeHtml(g.name)}</div>
-        ${g.org ? `<div class="guest-org">Guest of ${escapeHtml(g.org)}</div>` : ''}
-        <div class="assignment">
-          <div class="assignment-label">Your Row</div>
-          <div class="assignment-value">${rowDisplay}</div>
-          <div class="assignment-note">${note}</div>
-        </div>
-      </article>
-    `;
+      : 'Row assignment pending &mdash; please check at registration.';
+    return '<article class="result-card">'
+      + '<div class="guest-name">' + escapeHtml(g.name) + '</div>'
+      + (g.org ? '<div class="guest-org">Guest of ' + escapeHtml(g.org) + '</div>' : '')
+      + '<div class="assignment">'
+        + '<div class="assignment-label">Your Row</div>'
+        + '<div class="assignment-value">' + rowDisplay + '</div>'
+        + '<div class="assignment-note">' + note + '</div>'
+      + '</div>'
+      + '</article>';
   }
 
   function orgSummaryCard(org, rows, count) {
-    const rowsLabel = rows.length === 0 ? '—'
-                    : rows.length === 1 ? rows[0]
-                    : rows.join(' / ');
-    return `
-      <article class="result-card">
-        <div class="guest-name">${escapeHtml(org)}</div>
-        <div class="guest-org">${count} guest${count === 1 ? '' : 's'} on the list</div>
-        <div class="assignment">
-          <div class="assignment-label">Row${rows.length > 1 ? 's' : ''}</div>
-          <div class="assignment-value">${escapeHtml(rowsLabel)}</div>
-          <div class="assignment-note">Switch to “Find by Name” to look up an individual guest.</div>
-        </div>
-      </article>
-    `;
+    var rowsLabel = rows.length === 0 ? '&mdash;'
+                  : rows.length === 1 ? escapeHtml(rows[0])
+                  : rows.map(escapeHtml).join(' / ');
+    return '<article class="result-card">'
+      + '<div class="guest-name">' + escapeHtml(org) + '</div>'
+      + '<div class="guest-org">' + count + ' guest' + (count === 1 ? '' : 's') + ' on the list</div>'
+      + '<div class="assignment">'
+        + '<div class="assignment-label">Row' + (rows.length > 1 ? 's' : '') + '</div>'
+        + '<div class="assignment-value">' + rowsLabel + '</div>'
+        + '<div class="assignment-note">Switch to "Find by Name" to look up an individual guest.</div>'
+      + '</div>'
+      + '</article>';
   }
 
   function noMatchCard(q) {
-    return `
-      <article class="card">
-        <div class="state">
-          <div class="state-icon">✦</div>
-          <div class="state-title">No match for “${escapeHtml(q)}”</div>
-          <div class="state-body">
-            Double-check the spelling, or try searching by your host organization.<br>
-            Still stuck? Visit the registration desk for help.
-          </div>
-        </div>
-      </article>
-    `;
+    return '<article class="card">'
+      + '<div class="state">'
+        + '<div class="state-icon">&#10022;</div>'
+        + '<div class="state-title">No match for "' + escapeHtml(q) + '"</div>'
+        + '<div class="state-body">Double-check the spelling, or try searching by your host organization.<br>Still stuck? Visit the registration desk for help.</div>'
+      + '</div>'
+      + '</article>';
   }
 
-  function autoShrink(el) {
-    const len = (el.textContent || '').length;
-    let size = 64;
-    if (len > 3)  size = 52;
-    if (len > 5)  size = 40;
-    if (len > 8)  size = 30;
-    if (len > 12) size = 22;
-    el.style.fontSize = size + 'px';
+  function render() {
+    var q = els.input.value.trim().toLowerCase();
+    els.clear.classList.toggle('show', q.length > 0);
+    if (q.length < 2) { els.results.innerHTML = ''; return; }
+
+    if (mode === 'name') {
+      var matches = guests
+        .filter(function(g){ return g.name.toLowerCase().indexOf(q) !== -1; })
+        .sort(function(a,b){ return a.name.localeCompare(b.name); })
+        .slice(0, 8);
+      if (!matches.length) { els.results.innerHTML = noMatchCard(q); return; }
+      els.results.innerHTML = matches.map(guestCard).join('');
+    } else {
+      var orgsSeen = {};
+      var matchingOrgs = [];
+      guests.forEach(function(g){
+        if (g.org && g.org.toLowerCase().indexOf(q) !== -1 && !orgsSeen[g.org]) {
+          orgsSeen[g.org] = true;
+          matchingOrgs.push(g.org);
+        }
+      });
+      matchingOrgs.sort();
+      if (!matchingOrgs.length) { els.results.innerHTML = noMatchCard(q); return; }
+      els.results.innerHTML = matchingOrgs.slice(0, 8).map(function(org){
+        var orgGuests = guests.filter(function(g){ return g.org === org; });
+        var rowsSet = {};
+        orgGuests.forEach(function(g){ if (g.row) rowsSet[g.row] = true; });
+        var rows = Object.keys(rowsSet);
+        return orgSummaryCard(org, rows, orgGuests.length);
+      }).join('');
+    }
+
+    var values = document.querySelectorAll('.assignment-value');
+    for (var i = 0; i < values.length; i++) autoShrink(values[i]);
   }
 
-  function escapeHtml(s) {
-    return String(s)
-      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-  }
-
-  /* ───────────────────────────────────────────────
-     Events
-  ─────────────────────────────────────────────── */
   els.input.addEventListener('input', render);
-  els.clear.addEventListener('click', () => {
+  els.clear.addEventListener('click', function(){
     els.input.value = '';
     els.input.focus();
     render();
   });
 
-  els.tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      els.tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected', 'true');
-      mode = tab.dataset.mode;
-      els.label.textContent = mode === 'name' ? 'Your name' : 'Host organization';
-      els.input.placeholder = mode === 'name'
-        ? 'Start typing your name...'
-        : 'Start typing the org name...';
-      els.hint.textContent = mode === 'name'
-        ? 'Type at least 2 letters to see matches.'
-        : 'Find your row by the org that invited you.';
-      els.input.value = '';
-      els.input.focus();
-      render();
-    });
-  });
+  for (var i = 0; i < els.tabs.length; i++) {
+    (function(tab){
+      tab.addEventListener('click', function(){
+        for (var j = 0; j < els.tabs.length; j++) {
+          els.tabs[j].classList.remove('active');
+          els.tabs[j].setAttribute('aria-selected', 'false');
+        }
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        mode = tab.getAttribute('data-mode');
+        els.label.textContent = mode === 'name' ? 'Your name' : 'Host organization';
+        els.input.placeholder = mode === 'name'
+          ? 'Start typing your name...'
+          : 'Start typing the org name...';
+        els.hint.textContent = mode === 'name'
+          ? 'Type at least 2 letters to see matches.'
+          : 'Find your row by the org that invited you.';
+        els.input.value = '';
+        els.input.focus();
+        render();
+      });
+    })(els.tabs[i]);
+  }
 
-  /* ───────────────────────────────────────────────
-     Boot + auto-refresh
-  ─────────────────────────────────────────────── */
   loadData().then(render);
   setInterval(loadData, REFRESH_INTERVAL_MS);
-
-  // Re-fetch when tab regains focus (covers users who put phone to sleep mid-event)
-  document.addEventListener('visibilitychange', () => {
-    if (!document.hidden && Date.now() - lastFetchAt > 30 * 1000) loadData();
-  });
-</script>
-
-</body>
-</html>
-ow() - lastFetchAt > 30 * 1000) loadData();
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden && Date.now() - lastFetchAt > 30000) loadData();
   });
 </script>
 
