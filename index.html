@@ -92,6 +92,10 @@
     opacity: 0.95;
     margin-top: 12px;
   }
+  .brand-meta-sub {
+    margin-top: 6px;
+    opacity: 0.85;
+  }
 
   /* ─── Search card ────────────────────────────── */
   .card {
@@ -374,7 +378,8 @@
 <header class="brand">
   <div class="brand-mark">PCMA Foundation</div>
   <div class="brand-title">FASHION SHOW</div>
-  <div class="brand-meta">Living in Color &nbsp;·&nbsp; May 6, 2026 &nbsp;·&nbsp; Washington, DC</div>
+  <div class="brand-meta">Living in Color</div>
+  <div class="brand-meta brand-meta-sub">May 6, 2026 &nbsp;·&nbsp; Washington, DC</div>
 </header>
 
 <section class="card" aria-label="Find your seat">
@@ -392,7 +397,7 @@
       autocorrect="off"
       autocapitalize="words"
       spellcheck="false"
-      placeholder="Start typing your last name…"
+      placeholder="Start typing your name..."
       aria-label="Search">
     <button class="clear" id="clearBtn" aria-label="Clear search">×</button>
   </div>
@@ -402,7 +407,7 @@
 <section class="results" id="results" aria-live="polite"></section>
 
 <footer class="footer">
-  Live updates · Refreshes automatically
+  Need help? Visit the registration desk.
 </footer>
 
 <script>
@@ -640,8 +645,8 @@
       mode = tab.dataset.mode;
       els.label.textContent = mode === 'name' ? 'Your name' : 'Host organization';
       els.input.placeholder = mode === 'name'
-        ? 'Start typing your last name…'
-        : 'Start typing the organization name…';
+        ? 'Start typing your name...'
+        : 'Start typing the org name...';
       els.hint.textContent = mode === 'name'
         ? 'Type at least 2 letters to see matches.'
         : 'Find your row by the org that invited you.';
@@ -660,6 +665,12 @@
   // Re-fetch when tab regains focus (covers users who put phone to sleep mid-event)
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden && Date.now() - lastFetchAt > 30 * 1000) loadData();
+  });
+</script>
+
+</body>
+</html>
+ow() - lastFetchAt > 30 * 1000) loadData();
   });
 </script>
 
