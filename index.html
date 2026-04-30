@@ -31,4 +31,506 @@
   body {
     background:
       radial-gradient(circle at 12% 8%, rgba(255,255,255,0.18) 0, rgba(255,255,255,0) 28%),
-      radial-gradient(circle at 88% 92%, rgba(255,255,255,0.12) 0, rgba(255,255,255,0) 32
+      radial-gradient(circle at 88% 92%, rgba(255,255,255,0.12) 0, rgba(255,255,255,0) 32%),
+      linear-gradient(180deg,
+        var(--c-teal)    0%,
+        var(--c-blue)    18%,
+        var(--c-lavender) 38%,
+        var(--c-coral)   60%,
+        var(--c-orange)  80%,
+        var(--c-yellow)  100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 28px 20px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .brand {
+    text-align: center;
+    margin-bottom: 26px;
+    width: 100%;
+    max-width: 460px;
+  }
+  .brand-mark {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--paper);
+    opacity: 0.95;
+    margin-bottom: 10px;
+  }
+  .brand-title {
+    font-family: 'Gabarito', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: var(--paper);
+    text-shadow: 0 2px 24px rgba(22, 18, 31, 0.18);
+  }
+  .brand-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--paper);
+    opacity: 0.95;
+    margin-top: 12px;
+  }
+  .brand-meta-sub {
+    margin-top: 6px;
+    opacity: 0.85;
+  }
+  .card {
+    width: 100%;
+    max-width: 460px;
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 22px;
+    padding: 22px 20px 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 18px;
+  }
+  .tabs {
+    display: flex;
+    gap: 6px;
+    background: rgba(22, 18, 31, 0.06);
+    border-radius: 14px;
+    padding: 4px;
+    margin-bottom: 16px;
+  }
+  .tab {
+    flex: 1;
+    border: 0;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    padding: 11px 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+  .tab.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .field-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .search { position: relative; }
+  .search input {
+    width: 100%;
+    border: 1.5px solid rgba(22, 18, 31, 0.18);
+    background: #FFFFFF;
+    color: var(--ink);
+    border-radius: 14px;
+    padding: 14px 44px 14px 16px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.2;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .search input:focus {
+    outline: none;
+    border-color: var(--c-coral);
+    box-shadow: 0 0 0 4px rgba(240, 143, 126, 0.18);
+  }
+  .search input::placeholder {
+    color: rgba(22, 18, 31, 0.42);
+    font-style: italic;
+  }
+  .search .clear {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    border: 0;
+    background: rgba(22, 18, 31, 0.08);
+    border-radius: 50%;
+    color: var(--ink);
+    font-size: 16px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  .search .clear.show { display: flex; }
+  .hint {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+  .results {
+    width: 100%;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .result-card {
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 22px;
+    padding: 22px 22px 24px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .result-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg,
+      var(--c-teal), var(--c-blue), var(--c-lavender),
+      var(--c-coral), var(--c-orange), var(--c-yellow));
+  }
+  .guest-name {
+    font-family: 'Gabarito', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-top: 2px;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .guest-org {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+    line-height: 1.4;
+  }
+  .assignment {
+    background: linear-gradient(135deg, var(--c-coral) 0%, var(--c-orange) 60%, var(--c-yellow) 100%);
+    border-radius: 16px;
+    padding: 18px 20px 20px;
+    color: var(--paper);
+    text-align: center;
+  }
+  .assignment-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.95;
+    margin-bottom: 6px;
+  }
+  .assignment-value {
+    font-family: 'Gabarito', sans-serif;
+    font-weight: 700;
+    line-height: 1;
+    font-size: 64px;
+    letter-spacing: 0.01em;
+  }
+  .assignment-note {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.95;
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+  .state {
+    text-align: center;
+    padding: 28px 16px;
+    color: var(--ink-soft);
+  }
+  .state-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+    opacity: 0.6;
+  }
+  .state-title {
+    font-family: 'Gabarito', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .state-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .footer {
+    width: 100%;
+    max-width: 460px;
+    text-align: center;
+    margin-top: 26px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--paper);
+    opacity: 0.85;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .card, .result-card { animation: fadeUp 0.25s ease both; }
+  @media (max-width: 380px) {
+    .brand-title { font-size: 38px; }
+    .guest-name { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="brand">
+  <div class="brand-mark">PCMA Foundation</div>
+  <div class="brand-title">FASHION SHOW</div>
+  <div class="brand-meta">Living in Color</div>
+  <div class="brand-meta brand-meta-sub">May 6, 2026 &nbsp;·&nbsp; Washington, DC</div>
+</header>
+
+<section class="card" aria-label="Find your seat">
+  <div class="tabs" role="tablist">
+    <button class="tab active" type="button" role="tab" data-mode="name" aria-selected="true">Find by Name</button>
+    <button class="tab" type="button" role="tab" data-mode="org" aria-selected="false">Find by Organization</button>
+  </div>
+  <label class="field-label" for="searchInput" id="searchLabel">Your name</label>
+  <div class="search">
+    <input id="searchInput" type="search" autocomplete="off" autocorrect="off" autocapitalize="words" spellcheck="false" placeholder="Start typing your name..." aria-label="Search">
+    <button class="clear" type="button" id="clearBtn" aria-label="Clear search">&times;</button>
+  </div>
+  <div class="hint" id="hint">Type at least 2 letters to see matches.</div>
+</section>
+
+<section class="results" id="results" aria-live="polite"></section>
+
+<footer class="footer">
+  Need help? Visit the registration desk.
+</footer>
+
+<script>
+  var USE_GOOGLE_SHEETS = true;
+  var GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSfRjuGVmmfdY6IWhuDFULH6-kMWCY5rx0ao7CdUn_zL02mOrHKhTiNkxiBHLUcNiuR804c_nHijYar/pub?gid=475164392&single=true&output=csv';
+  var REFRESH_INTERVAL_MS = 60 * 1000;
+
+  var SAMPLE_GUESTS = [];
+
+  var guests = [];
+  var mode = 'name';
+  var lastFetchAt = 0;
+
+  var els = {
+    input:   document.getElementById('searchInput'),
+    clear:   document.getElementById('clearBtn'),
+    label:   document.getElementById('searchLabel'),
+    hint:    document.getElementById('hint'),
+    results: document.getElementById('results'),
+    tabs:    document.querySelectorAll('.tab')
+  };
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function autoShrink(el) {
+    var len = (el.textContent || '').length;
+    var size = 64;
+    if (len > 3)  size = 52;
+    if (len > 5)  size = 40;
+    if (len > 8)  size = 30;
+    if (len > 12) size = 22;
+    el.style.fontSize = size + 'px';
+  }
+
+  function parseCSV(text) {
+    text = text.replace(/^\uFEFF/, '');
+    var rows = [];
+    var row = [], field = '', inQuotes = false;
+    for (var i = 0; i < text.length; i++) {
+      var c = text[i];
+      if (inQuotes) {
+        if (c === '"' && text[i+1] === '"') { field += '"'; i++; }
+        else if (c === '"') { inQuotes = false; }
+        else { field += c; }
+      } else {
+        if (c === '"') { inQuotes = true; }
+        else if (c === ',') { row.push(field); field = ''; }
+        else if (c === '\n' || c === '\r') {
+          if (field !== '' || row.length) { row.push(field); rows.push(row); }
+          row = []; field = '';
+          if (c === '\r' && text[i+1] === '\n') i++;
+        } else { field += c; }
+      }
+    }
+    if (field !== '' || row.length) { row.push(field); rows.push(row); }
+    if (!rows.length) return [];
+    var headers = rows.shift().map(function(h){ return h.trim().toLowerCase(); });
+    var idx = { name: headers.indexOf('name'), row: headers.indexOf('row'), org: headers.indexOf('org') };
+    return rows.filter(function(r){ return r.some(function(v){ return (v || '').trim() !== ''; }); })
+      .map(function(r){
+        return {
+          name: (r[idx.name] || '').trim(),
+          row:  (r[idx.row]  || '').trim(),
+          org:  (r[idx.org]  || '').trim()
+        };
+      })
+      .filter(function(g){ return g.name; });
+  }
+
+  function loadData() {
+    if (!USE_GOOGLE_SHEETS) {
+      guests = SAMPLE_GUESTS.slice();
+      lastFetchAt = Date.now();
+      return Promise.resolve();
+    }
+    return fetch(GOOGLE_SHEET_CSV_URL + '&_=' + Date.now(), { cache: 'no-store' })
+      .then(function(res){ if (!res.ok) throw new Error('HTTP ' + res.status); return res.text(); })
+      .then(function(text){
+        guests = parseCSV(text);
+        lastFetchAt = Date.now();
+        if (els.input.value.trim().length >= 2) render();
+      })
+      .catch(function(e){ console.error('Fetch failed:', e); });
+  }
+
+  function guestCard(g) {
+    var rowDisplay = g.row ? escapeHtml(g.row) : '&mdash;';
+    var note = g.row
+      ? 'Find your row at the runway showroom.'
+      : 'Row assignment pending &mdash; please check at registration.';
+    return '<article class="result-card">'
+      + '<div class="guest-name">' + escapeHtml(g.name) + '</div>'
+      + (g.org ? '<div class="guest-org">Guest of ' + escapeHtml(g.org) + '</div>' : '')
+      + '<div class="assignment">'
+        + '<div class="assignment-label">Your Row</div>'
+        + '<div class="assignment-value">' + rowDisplay + '</div>'
+        + '<div class="assignment-note">' + note + '</div>'
+      + '</div>'
+      + '</article>';
+  }
+
+  function orgSummaryCard(org, rows, count) {
+    var rowsLabel = rows.length === 0 ? '&mdash;'
+                  : rows.length === 1 ? escapeHtml(rows[0])
+                  : rows.map(escapeHtml).join(' / ');
+    return '<article class="result-card">'
+      + '<div class="guest-name">' + escapeHtml(org) + '</div>'
+      + '<div class="guest-org">' + count + ' guest' + (count === 1 ? '' : 's') + ' on the list</div>'
+      + '<div class="assignment">'
+        + '<div class="assignment-label">Row' + (rows.length > 1 ? 's' : '') + '</div>'
+        + '<div class="assignment-value">' + rowsLabel + '</div>'
+        + '<div class="assignment-note">Switch to "Find by Name" to look up an individual guest.</div>'
+      + '</div>'
+      + '</article>';
+  }
+
+  function noMatchCard(q) {
+    return '<article class="card">'
+      + '<div class="state">'
+        + '<div class="state-icon">&#10022;</div>'
+        + '<div class="state-title">No match for "' + escapeHtml(q) + '"</div>'
+        + '<div class="state-body">Double-check the spelling, or try searching by your host organization.<br>Still stuck? Visit the registration desk for help.</div>'
+      + '</div>'
+      + '</article>';
+  }
+
+  function render() {
+    var q = els.input.value.trim().toLowerCase();
+    els.clear.classList.toggle('show', q.length > 0);
+    if (q.length < 2) { els.results.innerHTML = ''; return; }
+
+    if (mode === 'name') {
+      var matches = guests
+        .filter(function(g){ return g.name.toLowerCase().indexOf(q) !== -1; })
+        .sort(function(a,b){ return a.name.localeCompare(b.name); })
+        .slice(0, 8);
+      if (!matches.length) { els.results.innerHTML = noMatchCard(q); return; }
+      els.results.innerHTML = matches.map(guestCard).join('');
+    } else {
+      var orgsSeen = {};
+      var matchingOrgs = [];
+      guests.forEach(function(g){
+        if (g.org && g.org.toLowerCase().indexOf(q) !== -1 && !orgsSeen[g.org]) {
+          orgsSeen[g.org] = true;
+          matchingOrgs.push(g.org);
+        }
+      });
+      matchingOrgs.sort();
+      if (!matchingOrgs.length) { els.results.innerHTML = noMatchCard(q); return; }
+      els.results.innerHTML = matchingOrgs.slice(0, 8).map(function(org){
+        var orgGuests = guests.filter(function(g){ return g.org === org; });
+        var rowsSet = {};
+        orgGuests.forEach(function(g){ if (g.row) rowsSet[g.row] = true; });
+        var rows = Object.keys(rowsSet);
+        return orgSummaryCard(org, rows, orgGuests.length);
+      }).join('');
+    }
+
+    var values = document.querySelectorAll('.assignment-value');
+    for (var i = 0; i < values.length; i++) autoShrink(values[i]);
+  }
+
+  els.input.addEventListener('input', render);
+  els.clear.addEventListener('click', function(){
+    els.input.value = '';
+    els.input.focus();
+    render();
+  });
+
+  for (var i = 0; i < els.tabs.length; i++) {
+    (function(tab){
+      tab.addEventListener('click', function(){
+        for (var j = 0; j < els.tabs.length; j++) {
+          els.tabs[j].classList.remove('active');
+          els.tabs[j].setAttribute('aria-selected', 'false');
+        }
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        mode = tab.getAttribute('data-mode');
+        els.label.textContent = mode === 'name' ? 'Your name' : 'Host organization';
+        els.input.placeholder = mode === 'name'
+          ? 'Start typing your name...'
+          : 'Start typing the org name...';
+        els.hint.textContent = mode === 'name'
+          ? 'Type at least 2 letters to see matches.'
+          : 'Find your row by the org that invited you.';
+        els.input.value = '';
+        els.input.focus();
+        render();
+      });
+    })(els.tabs[i]);
+  }
+
+  loadData().then(render);
+  setInterval(loadData, REFRESH_INTERVAL_MS);
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden && Date.now() - lastFetchAt > 30000) loadData();
+  });
+</script>
+
+</body>
+</html>
