@@ -331,11 +331,25 @@
 </footer>
 
 <script>
-  var USE_GOOGLE_SHEETS = true;
-  var GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSfRjuGVmmfdY6IWhuDFULH6-kMWCY5rx0ao7CdUn_zL02mOrHKhTiNkxiBHLUcNiuR804c_nHijYar/pub?gid=475164392&single=true&output=csv';
+  var USE_GOOGLE_SHEETS = false;
+  var GOOGLE_SHEET_CSV_URL = '';
   var REFRESH_INTERVAL_MS = 60 * 1000;
 
-  var SAMPLE_GUESTS = [];
+  var SAMPLE_GUESTS = [
+    { name: 'Maggie Endres',        org: 'PCMA Foundation',                            row: 'A'    },
+    { name: 'JoAnn Bedrosian Ryan', org: 'PCMA Foundation',                            row: 'A'    },
+    { name: 'Meredith Rollins',     org: 'PCMA Foundation',                            row: 'A'    },
+    { name: 'Rebecca Blessing',     org: 'George Washington University',               row: 'B'    },
+    { name: 'Kira Elliott',         org: 'Cypress Planning Group',                     row: 'B'    },
+    { name: 'Loreal Lance',         org: 'Community Transportation Association',       row: 'C'    },
+    { name: 'Clare Mulligan',       org: 'Smithsonian',                                row: 'C'    },
+    { name: 'Tina Schneider',       org: 'NARUC',                                      row: 'D'    },
+    { name: 'Ashley Alexander',     org: 'National WIC Association',                   row: 'D'    },
+    { name: 'Jamie Simpson',        org: 'Association for Diagnostics & Lab Medicine', row: 'E'    },
+    { name: 'Sample Guest 1',       org: 'The Palm Beaches',                           row: '1-5'  },
+    { name: 'Sample Guest 2',       org: 'Choose Chicago',                             row: 'Open' },
+    { name: 'Sample Guest 3',       org: 'Events DC',                                  row: '12-18'}
+  ];
 
   var guests = [];
   var mode = 'name';
@@ -367,7 +381,6 @@
   }
 
   function parseCSV(text) {
-    text = text.replace(/^\uFEFF/, '');
     var rows = [];
     var row = [], field = '', inQuotes = false;
     for (var i = 0; i < text.length; i++) {
